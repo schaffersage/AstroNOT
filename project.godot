@@ -20,6 +20,7 @@ config/icon="uid://d1x6gjyi3dygj"
 XrSimulator="*uid://ctltchlf2j2r4"
 XRToolsUserSettings="*uid://bqgb8i74tm0t"
 XRToolsRumbleManager="*uid://by853dk86g1qw"
+Global="*uid://c7cf0qgumwp5o"
 
 [display]
 
@@ -30,6 +31,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+
+[layer_names]
+
+3d_physics/layer_2="Pickable"
 
 [physics]
 

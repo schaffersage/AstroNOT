@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bogh0nivl3bc8" path="res://assets/nightsky.png" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_bswci"]
-[ext_resource type="PackedScene" uid="uid://se3jvdqwbipy" path="res://scenes/dextre_3.tscn" id="3_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://c8kgav8wibrdv" path="res://scenes/bendydextre.tscn" id="3_4nkto"]
+[ext_resource type="PackedScene" uid="uid://bwhbfldin6s5n" path="res://scenes/dextre_body.tscn" id="3_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://dlpuy217csxth" path="res://scenes/rigid_iss.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://ubeyduj2dg08" path="res://scenes/i_rosa_phys.tscn" id="4_4nkto"]
 
@@ -34,13 +35,17 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 12.0
 
 [node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_bswci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8754153, -14.4216175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8754153, -9.68512)
 
-[node name="Dextre3" parent="." unique_id=462558053 instance=ExtResource("3_5xbjy")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.3128471, 3.5535655, -14.763911)
+[node name="DextreBody" parent="." unique_id=1206566352 instance=ExtResource("3_fcfvj")]
+transform = Transform3D(4.7767137e-16, -1.0927847e-08, 0.25, -0.25, -1.0927847e-08, 0, 1.0927847e-08, -0.25, -1.0927847e-08, 3.4287262, 9.390854, -5.8332443)
 
-[node name="Dextre4" parent="." unique_id=1148466110 instance=ExtResource("3_5xbjy")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.3183975, 3.5465412, -14.660804)
+[node name="bendydextreL" parent="." unique_id=902673858 instance=ExtResource("3_4nkto")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.7000046, 4.956559, -6.656882)
+is_left = true
+
+[node name="bendydextreR" parent="." unique_id=292139830 instance=ExtResource("3_4nkto")]
+transform = Transform3D(-0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.0217524, 5.272086, -7.0216956)
 
 [node name="iROSA_Phys" parent="." unique_id=517073688 instance=ExtResource("4_4nkto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37734246, 4.806079, -19.846067)

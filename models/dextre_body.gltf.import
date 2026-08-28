@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjrxad7s7kdgw"
-path="res://.godot/imported/bendydextre.glb-6e4945c26399e7fa7cf8c4449d594f49.scn"
+uid="uid://di0of8gylfjrs"
+path="res://.godot/imported/dextre_body.gltf-e3a54ae5b70e663d26896ad33a949c83.scn"
 
 [deps]
 
-source_file="res://models/bendydextre.glb"
-dest_files=["res://.godot/imported/bendydextre.glb-6e4945c26399e7fa7cf8c4449d594f49.scn"]
+source_file="res://models/dextre_body.gltf"
+dest_files=["res://.godot/imported/dextre_body.gltf-e3a54ae5b70e663d26896ad33a949c83.scn"]
 
 [params]
 
