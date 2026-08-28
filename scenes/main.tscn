@@ -54,7 +54,7 @@ mesh = SubResource("PlaneMesh_tbgi4")
 shape = SubResource("WorldBoundaryShape3D_tbgi4")
 
 [node name="RigidBody3D" type="StaticBody3D" parent="." unique_id=1725399078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24356478, -0.75185096)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23711997, -0.75185096)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=903599015]
 mesh = SubResource("BoxMesh_kslc4")
