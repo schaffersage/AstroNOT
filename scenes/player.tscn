@@ -39,7 +39,6 @@ pose = &"grip"
 show_when_tracked = true
 
 [node name="XRControllerRight" type="XRController3D" parent="." unique_id=402416012]
-visible = false
 tracker = &"right_hand"
 pose = &"grip"
 show_when_tracked = true
