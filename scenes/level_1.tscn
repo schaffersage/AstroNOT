@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bogh0nivl3bc8" path="res://assets/nightsky.png" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_bswci"]
+[ext_resource type="PackedScene" uid="uid://se3jvdqwbipy" path="res://scenes/dextre_3.tscn" id="3_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://dlpuy217csxth" path="res://scenes/rigid_iss.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://ubeyduj2dg08" path="res://scenes/i_rosa_phys.tscn" id="4_4nkto"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bswci"]
 panorama = ExtResource("1_014kd")
@@ -13,6 +15,9 @@ sky_material = SubResource("PanoramaSkyMaterial_bswci")
 [sub_resource type="Environment" id="Environment_rus8k"]
 background_mode = 2
 sky = SubResource("Sky_jyhfs")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kslc4"]
+size = Vector3(2.392395, 1, 2.517517)
 
 [node name="Level1" type="Node3D" unique_id=689550265]
 
@@ -29,7 +34,25 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 12.0
 
 [node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_bswci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8754153, -14.4216175)
 
-[node name="rigid_iss" parent="." unique_id=1138170856 instance=ExtResource("3_rus8k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Dextre3" parent="." unique_id=462558053 instance=ExtResource("3_5xbjy")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.3128471, 3.5535655, -14.763911)
+
+[node name="Dextre4" parent="." unique_id=1148466110 instance=ExtResource("3_5xbjy")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.3183975, 3.5465412, -14.660804)
+
+[node name="iROSA_Phys" parent="." unique_id=517073688 instance=ExtResource("4_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37734246, 4.806079, -19.846067)
+
+[node name="iROSA_Phys2" parent="." unique_id=765177412 instance=ExtResource("4_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6936964, 4.806079, -19.835438)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=70663368]
+
+[node name="rigid_iss" parent="StaticBody3D" unique_id=1138170856 instance=ExtResource("3_rus8k")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0029187053, 0, -0.00030326843)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=995810892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015350342, 3.7217112, -19.988123)
+shape = SubResource("BoxShape3D_kslc4")
