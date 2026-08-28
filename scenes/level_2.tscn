@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://6sg4qq3558e"]
+
+[ext_resource type="Texture2D" uid="uid://btlwmr23c5cqr" path="res://assets/nightsky.png" id="1_3bmlt"]
+[ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_jm1iu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jm1iu"]
+panorama = ExtResource("1_3bmlt")
+
+[sub_resource type="Sky" id="Sky_pbc48"]
+sky_material = SubResource("PanoramaSkyMaterial_jm1iu")
+
+[sub_resource type="Environment" id="Environment_eqxsl"]
+background_mode = 2
+sky = SubResource("Sky_pbc48")
+
+[node name="Level2" type="Node3D" unique_id=603214566]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1078079241]
+environment = SubResource("Environment_eqxsl")
+
+[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=1944128880]
+transform = Transform3D(0.86601907, -0.3535631, 0.35355926, 0, 0.70710295, 0.70711064, -0.500011, -0.61237127, 0.6123646, 0, 2.9986405, 0)
+light_energy = 1.1
+shadow_enabled = true
+shadow_bias = 0.03
+shadow_normal_bias = 1.0
+directional_shadow_mode = 0
+directional_shadow_max_distance = 12.0
+
+[node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_jm1iu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
