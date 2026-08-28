@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://1qvjtj5tmo70" path="res://models/quest_touch_plus_left.glb" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://cn5kxyuuli1wv" path="res://models/quest_touch_plus_right.glb" id="3_tuyoq"]
 [ext_resource type="Script" uid="uid://v4bbtfxluagp" path="res://scripts/xr_hands.gd" id="4_fjrip"]
-[ext_resource type="PackedScene" uid="uid://c2c3j1f0cqwh0" path="res://scenes/low_poly_hand.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://c2c3j1f0cqwh0" path="res://scenes/low_poly_hand_left.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bktugomtn0hml" path="res://scenes/low_poly_hand_right.tscn" id="7_fjrip"]
 
 [node name="Player" type="XROrigin3D" unique_id=1057151667]
 current = true
@@ -34,6 +35,14 @@ right_model = ExtResource("3_tuyoq")
 script = ExtResource("4_fjrip")
 
 [node name="LeftXRNode3D" type="XRNode3D" parent="." unique_id=927490863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4658305, 0, 0)
 tracker = &"/user/hand_tracker/left"
 
-[node name="LowPolyHand" parent="LeftXRNode3D" unique_id=1120288565 instance=ExtResource("6_tuyoq")]
+[node name="LowPolyHandLeft" parent="LeftXRNode3D" unique_id=1120288565 instance=ExtResource("6_tuyoq")]
+transform = Transform3D(-0.1, 8.742278e-09, 0, 3.821371e-16, 4.371139e-09, -0.1, -8.742278e-09, -0.1, -4.371139e-09, 0.10926947, 0, 0)
+
+[node name="RightXRNode3D" type="XRNode3D" parent="." unique_id=1151738780]
+tracker = &"/user/hand_tracker/right"
+
+[node name="LowPolyHandLeft" parent="RightXRNode3D" unique_id=426855579 instance=ExtResource("7_fjrip")]
+transform = Transform3D(-0.1, 8.742278e-09, 4.2351648e-23, 3.8213711e-16, 4.371139e-09, -0.1, -8.742278e-09, -0.1, -4.371139e-09, 0.39103097, 0, 0)
