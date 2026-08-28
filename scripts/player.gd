@@ -1,7 +1,5 @@
 extends XROrigin3D
 
-const BUBBLE_RADIUS = 1.0
-
 @onready var left_controller = $XRControllerLeft
 @onready var right_controller = $XRControllerRight
 
