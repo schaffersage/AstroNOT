@@ -222,7 +222,6 @@ func _try_grab(hand: int) -> void:
 	var closest: RigidBody3D = null
 	var closest_dist := INF
 	
-	print("hiiiiiiiii")
 	print(area.get_overlapping_bodies())
 
 	for body in area.get_overlapping_bodies():

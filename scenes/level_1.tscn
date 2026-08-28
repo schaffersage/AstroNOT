@@ -38,7 +38,7 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 12.0
 
 [node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_bswci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7615056, -18.56514)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -20)
 
 [node name="DextreBody" parent="." unique_id=1206566352 instance=ExtResource("3_fcfvj")]
 transform = Transform3D(4.7767137e-16, -1.0927847e-08, 0.25, -0.25, -1.0927847e-08, 0, 1.0927847e-08, -0.25, -1.0927847e-08, 3.4287262, 9.390854, -5.8332443)
