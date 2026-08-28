@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://nh5g3ainyyg1"]
+
+[ext_resource type="PackedScene" uid="uid://dhbdpp3g1kp3k" path="res://models/irosa_unrolled.gltf" id="1_7sm51"]
+
+[node name="iROSAUR" unique_id=1877693173 instance=ExtResource("1_7sm51")]
