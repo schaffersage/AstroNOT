@@ -42,8 +42,7 @@ func _ready() -> void:
 	for path in hide_in_passthrough:
 		var node := get_node_or_null(path) as Node3D
 		_hidden.append(node)
-		if node:
-			_hidden_was_visible.append(node.visible)
+		_hidden_was_visible.append(node.visible)
 
 	# blend mode only means anything once the session is actually running
 	_xr.session_begun.connect(_on_session_begun)
