@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2c3j1f0cqwh0"]
+
+[ext_resource type="PackedScene" uid="uid://bm2ix8qd04ptw" path="res://models/LowPolyHand.glb" id="1_qbcls"]
+
+[node name="LowPolyHand" unique_id=1120288565 instance=ExtResource("1_qbcls")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(429203075) index="1" unique_id=1079035940]
