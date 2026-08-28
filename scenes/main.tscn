@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx3vo21cuj7pj" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://btlwmr23c5cqr" path="res://assets/nightsky.png" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://d4d3lp3nrp6ua" path="res://assets/nightsky.png" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://bkeashwobe3gi" path="res://scripts/xr_passthrough.gd" id="7_trceg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o6xl0"]
@@ -15,22 +15,15 @@ sky_material = SubResource("PanoramaSkyMaterial_o6xl0")
 background_mode = 2
 sky = SubResource("Sky_jyhfs")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_kslc4"]
-
 [node name="Main" type="Node3D" unique_id=500145794]
 script = ExtResource("1_o6xl0")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=849176460]
-environment = SubResource("Environment_sugp2")
-
-[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=1844096403]
-transform = Transform3D(0.86601907, -0.3535631, 0.35355926, 0, 0.70710295, 0.70711064, -0.500011, -0.61237127, 0.6123646, 0, 2.9986405, 0)
-light_energy = 1.1
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=294018210]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-shadow_bias = 0.03
-shadow_normal_bias = 1.0
-directional_shadow_mode = 0
-directional_shadow_max_distance = 12.0
+
+[node name="Sky" type="WorldEnvironment" parent="." unique_id=849176460]
+environment = SubResource("Environment_sugp2")
 
 [node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -38,6 +31,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="Passthrough" type="Node" parent="." unique_id=1290157622]
 script = ExtResource("7_trceg")
 hide_in_passthrough = Array[NodePath]([NodePath("")])
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1578539443]
-mesh = SubResource("PlaneMesh_kslc4")

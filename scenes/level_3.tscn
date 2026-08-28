@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://3a4kaiwv8uta"]
 
-[ext_resource type="Texture2D" uid="uid://btlwmr23c5cqr" path="res://assets/nightsky.png" id="1_70nk6"]
+[ext_resource type="Texture2D" uid="uid://d4d3lp3nrp6ua" path="res://assets/nightsky.png" id="1_70nk6"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_h23n6"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h23n6"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jm1iu"]
 panorama = ExtResource("1_70nk6")
 
 [sub_resource type="Sky" id="Sky_uwxec"]
-sky_material = SubResource("PanoramaSkyMaterial_h23n6")
+sky_material = SubResource("PanoramaSkyMaterial_jm1iu")
 
 [sub_resource type="Environment" id="Environment_1pn4d"]
 background_mode = 2
