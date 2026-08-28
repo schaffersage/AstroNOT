@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://v4bbtfxluagp" path="res://scripts/xr_hands.gd" id="4_fjrip"]
 [ext_resource type="Material" uid="uid://br6n0t28vi0gh" path="res://transparent_bubble.tres" id="6_tuyoq"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kslc4"]
+size = Vector3(0.2, 0.2, 0.2)
+
 [sub_resource type="SphereMesh" id="SphereMesh_qlg0r"]
 material = ExtResource("6_tuyoq")
 radius = 0.12
@@ -42,7 +45,6 @@ pose = &"grip"
 show_when_tracked = true
 
 [node name="XRVisuals" type="Node3D" parent="." unique_id=551457118]
-visible = false
 script = ExtResource("1_dqkch")
 left_controller = NodePath("../XRControllerLeft")
 right_controller = NodePath("../XRControllerRight")
@@ -52,8 +54,14 @@ right_model = ExtResource("3_tuyoq")
 [node name="XRHands" type="Node3D" parent="." unique_id=998260220]
 script = ExtResource("4_fjrip")
 
+[node name="Area3D" type="Area3D" parent="XRHands" unique_id=180452988]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRHands/Area3D" unique_id=1739418396]
+shape = SubResource("BoxShape3D_kslc4")
+
 [node name="BubbleLeft" type="Area3D" parent="." unique_id=137519067]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.29141188, -0.33302447)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BubbleLeft" unique_id=732250545]
 mesh = SubResource("SphereMesh_qlg0r")
@@ -63,6 +71,7 @@ shape = SubResource("SphereShape3D_kslc4")
 
 [node name="BubbleRight" type="Area3D" parent="." unique_id=1062925124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.29141188, -0.33302447)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BubbleRight" unique_id=583833083]
 mesh = SubResource("SphereMesh_tuyoq")

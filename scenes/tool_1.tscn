@@ -10,6 +10,10 @@ height = 0.4
 radius = 0.1
 height = 0.4
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kslc4"]
+radius = 0.15
+height = 0.5
+
 [node name="Tool1" type="RigidBody3D" unique_id=264074026]
 script = ExtResource("1_vcvn1")
 picked_up_layer = 65537
@@ -19,3 +23,8 @@ shape = SubResource("CapsuleShape3D_we8pc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=867983721]
 mesh = SubResource("CapsuleMesh_kslc4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=581124193]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=375766687]
+shape = SubResource("CapsuleShape3D_kslc4")

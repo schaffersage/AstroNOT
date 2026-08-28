@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b1bb8ebiqbvyi"]
+
+[ext_resource type="PackedScene" uid="uid://b5joeii088ba0" path="res://models/dextreTRUEARM.glb" id="1_oo232"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kslc4"]
+
+[node name="dextreTRUEARM" unique_id=460687968 instance=ExtResource("1_oo232")]
+
+[node name="Bone_004" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1949314942) index="0" unique_id=1027263981]
+transform = Transform3D(0.45078397, -0.88920295, 0.078177825, 0.8922931, 0.44646412, -0.06695286, 0.02463097, 0.09993885, 0.9946883, -31.466402, 15.961054, 3.5731006)
+
+[node name="Bone_003" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1949314942) index="1" unique_id=1120934102]
+transform = Transform3D(0.45350766, -0.8877315, 0.07914219, 0.8909484, 0.44924346, -0.066265896, 0.023272097, 0.100563735, 0.99465805, -24.58942, 12.480904, 2.7940643)
+
+[node name="Bone_001" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1949314942) index="2" unique_id=1440493709]
+transform = Transform3D(0.42259178, -0.88781285, 0.18222064, 0.8820603, 0.44908875, 0.1424388, -0.20829226, 0.10053614, 0.97288567, -8.29397, 4.2343855, 0.9479955)
+
+[node name="CCDIK3D" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1949314942) index="3" unique_id=1643291431]
+setting_count = 1
+settings/0/target_node = NodePath("../../ArmTarget")
+settings/0/root_bone_name = "Bone"
+settings/0/root_bone = 0
+settings/0/end_bone_name = "Bone.005"
+settings/0/end_bone = 5
+settings/0/extend_end_bone = false
+settings/0/joint_count = 6
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+settings/0/joints/3/rotation_axis = 3
+settings/0/joints/3/limitation = null
+settings/0/joints/4/rotation_axis = 3
+settings/0/joints/4/limitation = null
+settings/0/joints/5/rotation_axis = 3
+settings/0/joints/5/limitation = null
+
+[node name="ArmTarget" type="Node3D" parent="Armature" parent_id_path=PackedInt32Array(510991764) index="1" unique_id=1800235398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.10701, 23.81416, 5.3310127)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/ArmTarget" index="0" unique_id=93782484]
+mesh = SubResource("SphereMesh_kslc4")
