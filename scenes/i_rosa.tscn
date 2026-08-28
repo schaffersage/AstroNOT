@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://03qai1dc1o46"]
+
+[node name="iROSA" type="RigidBody3D" unique_id=92114364]

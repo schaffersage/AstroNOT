@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bx3vo21cuj7pj" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://d4d3lp3nrp6ua" path="res://assets/nightsky.png" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bqafy5yekubsl" path="res://scenes/tool_1.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://bkeashwobe3gi" path="res://scripts/xr_passthrough.gd" id="7_trceg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o6xl0"]
@@ -14,6 +15,15 @@ sky_material = SubResource("PanoramaSkyMaterial_o6xl0")
 [sub_resource type="Environment" id="Environment_sugp2"]
 background_mode = 2
 sky = SubResource("Sky_jyhfs")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tbgi4"]
+size = Vector2(5, 5)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tbgi4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kslc4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_we8pc"]
 
 [node name="Main" type="Node3D" unique_id=500145794]
 script = ExtResource("1_o6xl0")
@@ -31,3 +41,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="Passthrough" type="Node" parent="." unique_id=1290157622]
 script = ExtResource("7_trceg")
 hide_in_passthrough = Array[NodePath]([NodePath("")])
+
+[node name="Tool1" parent="." unique_id=264074026 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.071559206, 1.616271, -0.4471295)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1934580175]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1459784919]
+mesh = SubResource("PlaneMesh_tbgi4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=791876663]
+shape = SubResource("WorldBoundaryShape3D_tbgi4")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=506496174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18195677, -0.75185096)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=903599015]
+mesh = SubResource("BoxMesh_kslc4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1499806757]
+shape = SubResource("BoxShape3D_we8pc")

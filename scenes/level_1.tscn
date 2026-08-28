@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d4d3lp3nrp6ua" path="res://assets/nightsky.png" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_bswci"]
+[ext_resource type="PackedScene" uid="uid://dlpuy217csxth" path="res://scenes/rigid_iss.tscn" id="3_rus8k"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bswci"]
 panorama = ExtResource("1_014kd")
@@ -29,3 +30,6 @@ directional_shadow_max_distance = 12.0
 
 [node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_bswci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="rigid_iss" parent="." unique_id=1138170856 instance=ExtResource("3_rus8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

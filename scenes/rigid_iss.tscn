@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dlpuy217csxth"]
+
+[ext_resource type="PackedScene" uid="uid://fmvtm01x7rp0" path="res://models/rigid_iss.glb" id="1_2mmea"]
+
+[node name="rigid_iss" unique_id=1138170856 instance=ExtResource("1_2mmea")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
