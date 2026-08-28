@@ -12,6 +12,7 @@ height = 0.4
 
 [node name="Tool1" type="RigidBody3D" unique_id=264074026]
 script = ExtResource("1_vcvn1")
+picked_up_layer = 65537
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1061852275]
 shape = SubResource("CapsuleShape3D_we8pc")

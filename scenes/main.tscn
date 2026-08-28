@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx3vo21cuj7pj" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://d4d3lp3nrp6ua" path="res://assets/nightsky.png" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bogh0nivl3bc8" path="res://assets/nightsky.png" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bqafy5yekubsl" path="res://scenes/tool_1.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://bkeashwobe3gi" path="res://scripts/xr_passthrough.gd" id="7_trceg"]
 
@@ -53,10 +53,11 @@ mesh = SubResource("PlaneMesh_tbgi4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=791876663]
 shape = SubResource("WorldBoundaryShape3D_tbgi4")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=506496174]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18195677, -0.75185096)
+[node name="RigidBody3D" type="StaticBody3D" parent="." unique_id=1725399078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12171495, -0.75185096)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=903599015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40333092, 0)
 mesh = SubResource("BoxMesh_kslc4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1499806757]
