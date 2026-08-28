@@ -4,14 +4,19 @@
 [ext_resource type="Script" uid="uid://bwp552bywhlq7" path="res://scripts/bendydextre.gd" id="2_ig1m1"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ig1m1"]
+radius = 0.2
+height = 0.4
 
 [node name="bendydextre" unique_id=902673858 instance=ExtResource("1_iswff")]
 script = ExtResource("2_ig1m1")
 
 [node name="Armature" parent="." index="0" unique_id=1949336071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0" unique_id=1407327089]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
-[node name="CCDIK3D" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1407327089) index="1" unique_id=1957096142]
+[node name="CCDIK3D" type="CCDIK3D" parent="Armature/Skeleton3D" index="1" unique_id=1957096142]
 setting_count = 1
 settings/0/target_node = NodePath("../../ArmTarget")
 settings/0/root_bone_name = "Bone"
@@ -50,7 +55,8 @@ settings/0/joints/13/rotation_axis = 3
 settings/0/joints/13/limitation = null
 
 [node name="ArmTarget" type="Node3D" parent="Armature" index="1" unique_id=1382792094]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.195477, 37.97245, 9.973238)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -2.8647654, -2.5815396, 6.588252)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/ArmTarget" index="0" unique_id=1734065180]
 layers = 8193
