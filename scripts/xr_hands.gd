@@ -21,6 +21,15 @@ const FINGER_CHAINS := [
 ## Thickness of the finger models
 const FINGER_THICKNESS := 0.7
 
+const GRAB_RADIUS := 0.06
+const PINCH_GRAB_DISTANCE := 0.025     # start grabbing once thumb+index closer than this
+const PINCH_RELEASE_DISTANCE := 0.045  # let go once further than this (hysteresis avoids flicker)
+
+var _grab_areas: Array[Area3D] = []
+var _held_bodies: Array[RigidBody3D] = []
+var _grab_offsets: Array[Transform3D] = []
+var _is_pinching: Array[bool] = [false, false]
+
 ## On for controller/hand, false for only controller.
 @export var enabled := true:
 	set = _set_enabled
@@ -53,9 +62,11 @@ func _process(_delta: float) -> void:
 		var tracking_real := _is_tracking_real_hands(tracker)
 		root.visible = tracking_real
 		if not tracking_real:
+			_release(hand)
 			continue
 
 		_update_hand(hand, tracker)
+		_update_grab(hand, tracker)
 
 		var thumb_tip := tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_THUMB_TIP).origin
 		var index_tip := tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_INDEX_FINGER_TIP).origin
@@ -86,6 +97,8 @@ func _update_hand(hand: int, tracker: XRHandTracker) -> void:
 		var sphere: MeshInstance3D = joints[joint]
 		sphere.position = reference * (tracker.get_hand_joint_transform(joint).origin * world_scale) + offset
 		sphere.scale = Vector3.ONE * tracker.get_hand_joint_radius(joint) * world_scale * joint_scale
+
+	_grab_areas[hand].position = reference * (tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_PALM).origin * world_scale) + offset
 
 	for bone in _bones[hand]:
 		var cylinder: MeshInstance3D = bone[0]
@@ -150,6 +163,20 @@ func _build_hand() -> void:
 	_hands.append(root)
 	_joints.append(joints)
 	_bones.append(bones)
+	
+	var area := Area3D.new()
+	area.name = "GrabArea"
+	area.collision_layer = 0
+	area.collision_mask = 1 << 1  # layer 2: wherever your grabbable objects live
+	var shape := CollisionShape3D.new()
+	shape.shape = SphereShape3D.new()
+	shape.shape.radius = GRAB_RADIUS
+	area.add_child(shape)
+	root.add_child(area)
+
+	_grab_areas.append(area)
+	_held_bodies.append(null)
+	_grab_offsets.append(Transform3D())
 
 
 func _add_mesh(root: Node3D, mesh: Mesh) -> MeshInstance3D:
@@ -167,3 +194,44 @@ func _set_enabled(value: bool) -> void:
 	if not value:
 		for hand: Node3D in _hands:
 			hand.visible = false
+
+func _update_grab(hand: int, tracker: XRHandTracker) -> void:
+	var thumb_tip := tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_THUMB_TIP).origin
+	var index_tip := tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_INDEX_FINGER_TIP).origin
+	var pinch_dist := thumb_tip.distance_to(index_tip)
+
+	if not _is_pinching[hand] and pinch_dist < PINCH_GRAB_DISTANCE:
+		_is_pinching[hand] = true
+		_try_grab(hand)
+	elif _is_pinching[hand] and pinch_dist > PINCH_RELEASE_DISTANCE:
+		_is_pinching[hand] = false
+		_release(hand)
+
+	if _held_bodies[hand]:
+		_held_bodies[hand].global_transform = _grab_areas[hand].global_transform * _grab_offsets[hand]
+
+
+func _try_grab(hand: int) -> void:
+	var area := _grab_areas[hand]
+	var closest: RigidBody3D = null
+	var closest_dist := INF
+
+	for body in area.get_overlapping_bodies():
+		if body is RigidBody3D and body.is_in_group("grabbable"):
+			var dist := area.global_position.distance_to(body.global_position)
+			if dist < closest_dist:
+				closest = body
+				closest_dist = dist
+
+	if closest:
+		_held_bodies[hand] = closest
+		_grab_offsets[hand] = area.global_transform.affine_inverse() * closest.global_transform
+		closest.freeze = true
+
+
+func _release(hand: int) -> void:
+	var body := _held_bodies[hand]
+	if not body:
+		return
+	body.freeze = false
+	_held_bodies[hand] = null

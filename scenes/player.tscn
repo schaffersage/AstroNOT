@@ -29,6 +29,8 @@ script = ExtResource("1_qlg0r")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=570089607]
 
+[node name="Marker3D" type="Marker3D" parent="XRCamera3D" unique_id=793997237]
+
 [node name="XRControllerLeft" type="XRController3D" parent="." unique_id=81025824]
 visible = false
 tracker = &"left_hand"
