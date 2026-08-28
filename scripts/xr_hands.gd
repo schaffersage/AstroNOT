@@ -73,7 +73,13 @@ func _process(_delta: float) -> void:
 
 		var pinch_dist := thumb_tip.distance_to(index_tip)
 		if pinch_dist < 0.02:
-			print("pinch detected (hand %d)" % hand)
+			if not Global.is_grabbing:
+				print("pinch detected (hand %d)" % hand)
+			Global.is_grabbing = true
+		else:
+			Global.is_grabbing = false
+			Global.is_holding = false
+			
 
 func _is_tracking_real_hands(tracker: XRHandTracker) -> bool:
 	if tracker == null or not tracker.get_has_tracking_data():
