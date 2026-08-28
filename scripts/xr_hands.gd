@@ -50,10 +50,19 @@ func _process(_delta: float) -> void:
 		var tracker := _find_tracker(hand)
 		var root: Node3D = _hands[hand]
 
-		root.visible = _is_tracking_real_hands(tracker)
-		if root.visible:
-			_update_hand(hand, tracker)
+		var tracking_real := _is_tracking_real_hands(tracker)
+		root.visible = tracking_real
+		if not tracking_real:
+			continue
 
+		_update_hand(hand, tracker)
+
+		var thumb_tip := tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_THUMB_TIP).origin
+		var index_tip := tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_INDEX_FINGER_TIP).origin
+
+		var pinch_dist := thumb_tip.distance_to(index_tip)
+		if pinch_dist < 0.02:
+			print("pinch detected (hand %d)" % hand)
 
 func _is_tracking_real_hands(tracker: XRHandTracker) -> bool:
 	if tracker == null or not tracker.get_has_tracking_data():
