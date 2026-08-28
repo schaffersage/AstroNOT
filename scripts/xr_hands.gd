@@ -73,8 +73,8 @@ func _process(_delta: float) -> void:
 
 		var pinch_dist := thumb_tip.distance_to(index_tip)
 		if pinch_dist < 0.02:
-			if not Global.is_grabbing:
-				print("pinch detected (hand %d)" % hand)
+			#if not Global.is_grabbing:
+				#print("pinch detected (hand %d)" % hand)
 			Global.is_grabbing = true
 		else:
 			Global.is_grabbing = false
@@ -221,6 +221,9 @@ func _try_grab(hand: int) -> void:
 	var area := _grab_areas[hand]
 	var closest: RigidBody3D = null
 	var closest_dist := INF
+	
+	print("hiiiiiiiii")
+	print(area.get_overlapping_bodies())
 
 	for body in area.get_overlapping_bodies():
 		if body is RigidBody3D and body.is_in_group("grabbable"):

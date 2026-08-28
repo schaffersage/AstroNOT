@@ -14,7 +14,7 @@ height = 0.4
 radius = 0.15
 height = 0.5
 
-[node name="Tool1" type="RigidBody3D" unique_id=264074026]
+[node name="Tool1" type="RigidBody3D" unique_id=264074026 groups=["grabbable"]]
 collision_layer = 2
 script = ExtResource("1_vcvn1")
 
