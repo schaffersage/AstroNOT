@@ -1,12 +1,23 @@
 [gd_scene format=3 uid="uid://se3jvdqwbipy"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_4vlcd"]
+[ext_resource type="PackedScene" uid="uid://ut48jmjd3llp" path="res://models/Dextre3.glb" id="1_4vlcd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kslc4"]
 radius = 0.1
 height = 0.2
 
-[node name="Dextre3" unique_id=648524713]
+[node name="Dextre3" unique_id=462558053 instance=ExtResource("1_4vlcd")]
 
-[node name="CCDIK3D" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(172110913) index="3" unique_id=1397352290]
+[node name="Bone_002" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1288580296) index="0" unique_id=1469322423]
+transform = Transform3D(0.9999654, -0.008316147, 0, 0.008316147, 0.9999654, 0, 0, 0, 1, 0.019354071, 3.9999485, 0)
+
+[node name="Bone_001" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1288580296) index="1" unique_id=1849812578]
+transform = Transform3D(0.9999946, 0.0032973418, 0, -0.0032973418, 0.9999946, 0, 0, 0, 1, 0.0127593875, 1.9999593, 0)
+
+[node name="Bone" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1288580296) index="2" unique_id=1205960581]
+transform = Transform3D(0.9999797, 0.0063796937, 0, -0.0063796937, 0.9999797, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CCDIK3D" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1288580296) index="3" unique_id=958985666]
 setting_count = 1
 settings/0/target_node = NodePath("../../ArmTarget")
 settings/0/root_bone_name = "Bone"
@@ -24,8 +35,9 @@ settings/0/joints/2/limitation = null
 settings/0/joints/3/rotation_axis = 3
 settings/0/joints/3/limitation = null
 
-[node name="ArmTarget" type="Node3D" parent="Armature" parent_id_path=PackedInt32Array(576517789) index="1" unique_id=391027198]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.1315923, 0)
+[node name="ArmTarget" type="Node3D" parent="Armature" parent_id_path=PackedInt32Array(1065664632) index="1" unique_id=1670592727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.3289547, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/ArmTarget" index="0" unique_id=720317987]
-mesh = SubResource("SphereMesh_4vlcd")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/ArmTarget" index="0" unique_id=489597847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18596458, 0)
+mesh = SubResource("SphereMesh_kslc4")
