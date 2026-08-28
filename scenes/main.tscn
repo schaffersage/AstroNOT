@@ -40,7 +40,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Passthrough" type="Node" parent="." unique_id=1290157622]
 script = ExtResource("7_trceg")
-hide_in_passthrough = Array[NodePath]([NodePath("")])
 
 [node name="Tool1" parent="." unique_id=264074026 instance=ExtResource("5_tbgi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.071559206, 1.616271, -0.4471295)
