@@ -10,11 +10,11 @@ height = 0.4
 [node name="bendydextre" unique_id=902673858 instance=ExtResource("1_iswff")]
 script = ExtResource("2_ig1m1")
 
-[node name="Armature" parent="." index="0" unique_id=1949336071]
+[node name="Armature" parent="." index="0" unique_id=1714491600]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Armature" index="0" unique_id=1407327089]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+[node name="Skeleton3D" parent="Armature" index="0" unique_id=634992349]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
 
 [node name="CCDIK3D" type="CCDIK3D" parent="Armature/Skeleton3D" index="1" unique_id=1957096142]
 setting_count = 1

@@ -58,9 +58,11 @@ func _process(_delta: float) -> void:
 	for hand in _hands.size():
 		var tracker := _find_tracker(hand)
 		var root: Node3D = _hands[hand]
-
-		Global.left_position = to_global(tracker.position)
-		Global.right_position = to_global(tracker.position)
+		
+		if hand == 0:
+			Global.left_position = to_global(tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_WRIST).origin)
+		else:
+			Global.right_position = to_global(tracker.get_hand_joint_transform(XRHandTracker.HAND_JOINT_WRIST).origin)
 
 		var tracking_real := _is_tracking_real_hands(tracker)
 		root.visible = tracking_real
