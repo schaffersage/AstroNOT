@@ -18,6 +18,8 @@ background_mode = 2
 sky = SubResource("Sky_tbgi4")
 glow_enabled = true
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_kslc4"]
+
 [node name="Main" type="Node3D" unique_id=500145794]
 script = ExtResource("1_o6xl0")
 
@@ -34,7 +36,11 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 12.0
 
 [node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7096511, 0)
 
 [node name="Passthrough" type="Node" parent="." unique_id=1290157622]
 script = ExtResource("7_trceg")
 hide_in_passthrough = Array[NodePath]([NodePath("")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1578539443]
+mesh = SubResource("PlaneMesh_kslc4")

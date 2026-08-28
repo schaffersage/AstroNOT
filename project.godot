@@ -15,8 +15,13 @@ run/main_scene="uid://dnnvbq1dubml1"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://d1x6gjyi3dygj"
 
+[autoload]
+
+XrSimulator="*uid://ctltchlf2j2r4"
+
 [display]
 
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
