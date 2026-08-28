@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="vratmit-godot-xr-template"
+config/name="AstroNOT"
 run/main_scene="uid://dnnvbq1dubml1"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://d1x6gjyi3dygj"
 
 [display]
 
