@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8kgav8wibrdv"]
 
 [ext_resource type="PackedScene" uid="uid://cjrxad7s7kdgw" path="res://models/bendydextre.glb" id="1_iswff"]
-[ext_resource type="Script" uid="uid://bwp552bywhlq7" path="res://scenes/bendydextre.gd" id="2_ig1m1"]
+[ext_resource type="Script" uid="uid://bwp552bywhlq7" path="res://scripts/bendydextre.gd" id="2_ig1m1"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ig1m1"]
 
