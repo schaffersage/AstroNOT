@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bx3vo21cuj7pj" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_jyhfs"]
-[ext_resource type="Shader" uid="uid://bdncegx70k5ge" path="res://shaders/floor_grid.gdshader" id="6_eb6dy"]
 [ext_resource type="Script" uid="uid://bkeashwobe3gi" path="res://scripts/xr_passthrough.gd" id="7_trceg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
@@ -18,63 +17,6 @@ sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
 background_mode = 2
 sky = SubResource("Sky_tbgi4")
 glow_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_floor"]
-render_priority = 0
-shader = ExtResource("6_eb6dy")
-shader_parameter/floor_color = Color(0.1, 0.11, 0.13, 1)
-shader_parameter/line_color = Color(0.3, 0.48, 0.68, 1)
-shader_parameter/cell_size = 0.5
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
-size = Vector2(10, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
-size = Vector3(10, 0.2, 10)
-
-[sub_resource type="StandardMaterial3D" id="Mat_table"]
-albedo_color = Color(0.34, 0.29, 0.24, 1)
-roughness = 0.7
-
-[sub_resource type="BoxMesh" id="BoxMesh_table"]
-size = Vector3(1.2, 0.06, 0.7)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_table"]
-size = Vector3(1.2, 0.06, 0.7)
-
-[sub_resource type="StandardMaterial3D" id="Mat_red"]
-albedo_color = Color(0.46580058, 0.8205865, 0.76888007, 1)
-roughness = 0.5
-
-[sub_resource type="BoxMesh" id="BoxMesh_prop"]
-size = Vector3(0.09, 0.09, 0.09)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_prop"]
-size = Vector3(0.09, 0.09, 0.09)
-
-[sub_resource type="StandardMaterial3D" id="Mat_green"]
-albedo_color = Color(0.46666667, 0.81960785, 0.76862746, 1)
-roughness = 0.5
-
-[sub_resource type="SphereMesh" id="SphereMesh_prop"]
-radius = 0.05
-height = 0.1
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_prop"]
-radius = 0.05
-
-[sub_resource type="StandardMaterial3D" id="Mat_yellow"]
-albedo_color = Color(0.46666667, 0.81960785, 0.76862746, 1)
-roughness = 0.5
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_prop"]
-top_radius = 0.04
-bottom_radius = 0.04
-height = 0.14
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_prop"]
-height = 0.14
-radius = 0.04
 
 [node name="Main" type="Node3D" unique_id=500145794]
 script = ExtResource("1_o6xl0")
@@ -93,65 +35,6 @@ directional_shadow_max_distance = 12.0
 
 [node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_jyhfs")]
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1222995564]
-
-[node name="Mesh" type="MeshInstance3D" parent="Floor" unique_id=1788946882]
-material_override = SubResource("ShaderMaterial_floor")
-mesh = SubResource("PlaneMesh_floor")
-
-[node name="Collision" type="CollisionShape3D" parent="Floor" unique_id=429380688]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-shape = SubResource("BoxShape3D_floor")
-
-[node name="Table" type="StaticBody3D" parent="." unique_id=1222995565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.6)
-
-[node name="Mesh" type="MeshInstance3D" parent="Table" unique_id=1507181728]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0029900074, 0)
-material_override = SubResource("Mat_table")
-mesh = SubResource("BoxMesh_table")
-
-[node name="Collision" type="CollisionShape3D" parent="Table" unique_id=1762058184]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0020278692, 0)
-shape = SubResource("BoxShape3D_table")
-
-[node name="Props" type="Node3D" parent="." unique_id=546788418]
-
-[node name="Box" type="RigidBody3D" parent="Props" unique_id=1568289628]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.9, -0.6)
-
-[node name="Mesh" type="MeshInstance3D" parent="Props/Box" unique_id=1991983902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09934425)
-material_override = SubResource("Mat_red")
-mesh = SubResource("BoxMesh_prop")
-
-[node name="Collision" type="CollisionShape3D" parent="Props/Box" unique_id=64314266]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09825504)
-shape = SubResource("BoxShape3D_prop")
-
-[node name="Ball" type="RigidBody3D" parent="Props" unique_id=362352031]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, -0.6)
-
-[node name="Mesh" type="MeshInstance3D" parent="Props/Ball" unique_id=1380581418]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12304139)
-material_override = SubResource("Mat_green")
-mesh = SubResource("SphereMesh_prop")
-
-[node name="Collision" type="CollisionShape3D" parent="Props/Ball" unique_id=1357242908]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.121456295)
-shape = SubResource("SphereShape3D_prop")
-
-[node name="Pillar" type="RigidBody3D" parent="Props" unique_id=975572838]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.95, -0.6)
-
-[node name="Mesh" type="MeshInstance3D" parent="Props/Pillar" unique_id=1505332721]
-material_override = SubResource("Mat_yellow")
-mesh = SubResource("CylinderMesh_prop")
-
-[node name="Collision" type="CollisionShape3D" parent="Props/Pillar" unique_id=1875812616]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0027546883)
-shape = SubResource("CylinderShape3D_prop")
-
 [node name="Passthrough" type="Node" parent="." unique_id=1290157622]
 script = ExtResource("7_trceg")
-hide_in_passthrough = Array[NodePath]([NodePath("../Floor")])
+hide_in_passthrough = Array[NodePath]([NodePath("")])
