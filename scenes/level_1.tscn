@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cjfn538ixcyy6"]
 
 [ext_resource type="Texture2D" uid="uid://bogh0nivl3bc8" path="res://assets/nightsky.png" id="1_014kd"]
+[ext_resource type="Script" uid="uid://bx3vo21cuj7pj" path="res://scripts/main.gd" id="1_15mv3"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://c8kgav8wibrdv" path="res://scenes/bendydextre.tscn" id="3_4nkto"]
 [ext_resource type="PackedScene" uid="uid://bwhbfldin6s5n" path="res://scenes/dextre_body.tscn" id="3_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://dlpuy217csxth" path="res://scenes/rigid_iss.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://ubeyduj2dg08" path="res://scenes/i_rosa_phys.tscn" id="4_4nkto"]
+[ext_resource type="Script" uid="uid://bkeashwobe3gi" path="res://scripts/xr_passthrough.gd" id="7_pa8r4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bswci"]
 panorama = ExtResource("1_014kd")
@@ -21,6 +23,7 @@ sky = SubResource("Sky_jyhfs")
 size = Vector3(2.392395, 1, 2.517517)
 
 [node name="Level1" type="Node3D" unique_id=689550265]
+script = ExtResource("1_15mv3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=512933454]
 environment = SubResource("Environment_rus8k")
@@ -61,3 +64,6 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=995810892]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015350342, 3.7217112, -19.988123)
 shape = SubResource("BoxShape3D_kslc4")
+
+[node name="Passthrough" type="Node" parent="." unique_id=839191452]
+script = ExtResource("7_pa8r4")
