@@ -2,5 +2,5 @@
 
 [ext_resource type="PackedScene" uid="uid://duyogmvlaf3su" path="res://models/irosa_rolled.gltf" id="1_jssj2"]
 
-[node name="iROSA" unique_id=1035668804 groups=["grabbable"] instance=ExtResource("1_jssj2")]
+[node name="iROSA" unique_id=1035668804 instance=ExtResource("1_jssj2")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

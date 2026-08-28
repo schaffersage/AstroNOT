@@ -225,13 +225,18 @@ func _try_grab(hand: int) -> void:
 	print(area.get_overlapping_bodies())
 
 	for body in area.get_overlapping_bodies():
+		print(body.get_class())
+		print(body.get_groups())
 		if body is RigidBody3D and body.is_in_group("grabbable"):
+			print('hiiiiiii')
 			var dist := area.global_position.distance_to(body.global_position)
+			print(str(dist) + " " + str(closest_dist))
 			if dist < closest_dist:
 				closest = body
 				closest_dist = dist
 
 	if closest:
+		print(closest)
 		_held_bodies[hand] = closest
 		_grab_offsets[hand] = area.global_transform.affine_inverse() * closest.global_transform
 		closest.freeze = true

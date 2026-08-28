@@ -50,7 +50,7 @@ is_left = true
 [node name="bendydextreR" parent="." unique_id=292139830 instance=ExtResource("3_4nkto")]
 transform = Transform3D(1, 0, 0, 0, -1, -1.509958e-07, 0, 1.509958e-07, -1, 2.7753258, 5.272086, -5.245891)
 
-[node name="iROSA_Phys" parent="." unique_id=517073688 instance=ExtResource("4_4nkto")]
+[node name="iROSA_Phys" parent="." unique_id=517073688 groups=["grabbable"] instance=ExtResource("4_4nkto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37734246, 4.806079, -19.846067)
 
 [node name="iROSA_Phys2" parent="." unique_id=765177412 instance=ExtResource("4_4nkto")]
