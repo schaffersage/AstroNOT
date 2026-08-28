@@ -2,21 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bx3vo21cuj7pj" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://btlwmr23c5cqr" path="res://assets/nightsky.png" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://bkeashwobe3gi" path="res://scripts/xr_passthrough.gd" id="7_trceg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o6xl0"]
+panorama = ExtResource("2_tbgi4")
 
-[sub_resource type="Sky" id="Sky_tbgi4"]
-sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
+[sub_resource type="Sky" id="Sky_jyhfs"]
+sky_material = SubResource("PanoramaSkyMaterial_o6xl0")
 
-[sub_resource type="Environment" id="Environment_tefeu"]
+[sub_resource type="Environment" id="Environment_sugp2"]
 background_mode = 2
-sky = SubResource("Sky_tbgi4")
-glow_enabled = true
+sky = SubResource("Sky_jyhfs")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kslc4"]
 
@@ -24,7 +21,7 @@ glow_enabled = true
 script = ExtResource("1_o6xl0")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=849176460]
-environment = SubResource("Environment_tefeu")
+environment = SubResource("Environment_sugp2")
 
 [node name="SunLight" type="DirectionalLight3D" parent="." unique_id=1844096403]
 transform = Transform3D(0.86601907, -0.3535631, 0.35355926, 0, 0.70710295, 0.70711064, -0.500011, -0.61237127, 0.6123646, 0, 2.9986405, 0)
@@ -36,7 +33,7 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 12.0
 
 [node name="Player" parent="." unique_id=1057151667 instance=ExtResource("2_jyhfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7096511, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Passthrough" type="Node" parent="." unique_id=1290157622]
 script = ExtResource("7_trceg")
