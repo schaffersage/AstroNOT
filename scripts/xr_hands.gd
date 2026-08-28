@@ -50,8 +50,8 @@ func _process(_delta: float) -> void:
 		var tracker := _find_tracker(hand)
 		var root: Node3D = _hands[hand]
 
-		#Global.left_position = to_global(tracker.position)
-		#Global.right_position = to_global(tracker.position)
+		Global.left_position = to_global(tracker.position)
+		Global.right_position = to_global(tracker.position)
 
 		var tracking_real := _is_tracking_real_hands(tracker)
 		root.visible = tracking_real
