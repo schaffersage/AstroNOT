@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6sg4qq3558e"]
 
-[ext_resource type="Texture2D" uid="uid://d4d3lp3nrp6ua" path="res://assets/nightsky.png" id="1_3bmlt"]
+[ext_resource type="Texture2D" uid="uid://bogh0nivl3bc8" path="res://assets/nightsky.png" id="1_3bmlt"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_jm1iu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jm1iu"]
