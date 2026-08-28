@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjfn538ixcyy6"]
 
-[ext_resource type="Texture2D" uid="uid://d4d3lp3nrp6ua" path="res://assets/nightsky.png" id="1_014kd"]
+[ext_resource type="Texture2D" uid="uid://bogh0nivl3bc8" path="res://assets/nightsky.png" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://chgn5n7i6asr2" path="res://scenes/player.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://dlpuy217csxth" path="res://scenes/rigid_iss.tscn" id="3_rus8k"]
 
